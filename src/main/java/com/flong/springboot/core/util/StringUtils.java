@@ -24,10 +24,8 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      */
     public static boolean isEmpty(Object obj) {
         if (obj == null || obj.toString().length() == 0) {
-            //System.out.println("obj");
             return true;
         } else if (obj instanceof String) {
-            //System.out.println("String");
             return ((String) obj).isEmpty() || ((String) obj).length() == 0;
         } else if (obj instanceof Map) {
             return ((Map) obj).size() == 0 || ((Map) obj).isEmpty();
@@ -36,16 +34,10 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         } else if (obj instanceof Vector) {
             return ((Vector) obj).size() == 0 || ((Vector) obj).isEmpty();
         } else if ((obj instanceof List)) {
-            //System.out.println("List");
             return ((List) obj).size() == 0 || ((List) obj).isEmpty();
         } else if ((obj instanceof ArrayList)) {
-            // System.out.println("ArrayList");
             return ((ArrayList) obj).size() == 0 || ((ArrayList) obj).isEmpty();
-        } /*else if (obj instanceof R) {
-            R r = (R) obj;
-            Object data = r.getData();
-            return isEmpty(data);
-        }*/
+        }
         return false;
     }
 
@@ -71,7 +63,6 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
             for (Object obj : objs) {
                 boolean flag = isNotEmpty(obj);
                 if (flag) {
-                    reflag = true;
                     break;
                 }
             }
@@ -92,7 +83,6 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
             for (Object obj : objs) {
                 boolean flag = isNotEmpty(obj);
                 if (flag) {
-                    reflag = true;
                     break;
                 }
             }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 
 /**
  * 全局日期绑定
+ * @author wangshuai
  */
 @ControllerAdvice
 public class DateBindAdvice {

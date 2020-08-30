@@ -164,7 +164,7 @@ public class BuildConditionWrapper {
             //获取泛型类型字段
             Field field = clazz.getDeclaredField(fieldName);
             TableField tableFieldAnno = field.getAnnotation(TableField.class);
-            String columnName = "";
+            String columnName;
             //获取对应数据库字段
             if (tableFieldAnno != null && StrUtil.isNotBlank(tableFieldAnno.value())) {
                 //已定义数据库字段，取定义值

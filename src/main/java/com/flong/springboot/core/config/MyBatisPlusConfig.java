@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * @author wangshuai
+ */
 @Configuration
 public class MyBatisPlusConfig {
 

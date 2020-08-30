@@ -11,7 +11,7 @@ public class NamingStrategyUtils {
 	/**
 	 * 驼峰法转下划线
 	 */
-	public static String camelToUnderline(String line){
+	public String camelToUnderline(String line){
 		if(line==null||"".equals(line)){
 			return "";
 		}

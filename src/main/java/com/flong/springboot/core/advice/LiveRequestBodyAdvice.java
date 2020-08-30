@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdvice;
 
 /**
  * 针对@RequestBody请求的处理
+ * @author wangshuai
  */
 @ControllerAdvice
 @Slf4j
@@ -65,7 +66,7 @@ public class LiveRequestBodyAdvice implements RequestBodyAdvice {
         }
 
         @Override
-        public InputStream getBody() throws IOException {
+        public InputStream getBody() {
             return body;
         }
 

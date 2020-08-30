@@ -1,14 +1,6 @@
 package com.flong.springboot.core.advice;
 
-import static com.flong.springboot.core.exception.CommMsgCode.*;
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-
 import com.alibaba.fastjson.JSONObject;
-
-import java.sql.SQLException;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.ConstraintViolationException;
-
 import com.flong.springboot.core.exception.BaseException;
 import com.flong.springboot.core.exception.FatalException;
 import com.flong.springboot.core.exception.MsgCode;
@@ -20,14 +12,25 @@ import org.springframework.beans.TypeMismatchException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.validation.BindException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
-import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.ConstraintViolationException;
+import java.sql.SQLException;
+
+import static com.flong.springboot.core.exception.CommMsgCode.DB_ERROR;
+import static com.flong.springboot.core.exception.CommMsgCode.NOT_FOUND;
+import static com.flong.springboot.core.exception.CommMsgCode.NOT_SUPPORTED;
+import static com.flong.springboot.core.exception.CommMsgCode.PARAM_ERROR;
+import static com.flong.springboot.core.exception.CommMsgCode.SERVER_ERROR;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
 /**
  * 全局异常处理
+ * @author wangshuai
  */
 
 @RestControllerAdvice
@@ -78,8 +81,7 @@ public class ExceptionAdvice {
             log.error("uri:{},params:{},code:{},message:{}", uri, params, ex.getMsgCode().getCode(),
                     ex.getMessage());
             return createErrorResp(ex.getMsgCode(), ex.getMessage());
-        } else if (e instanceof MissingServletRequestParameterException
-                || e instanceof BindException
+        } else if (e instanceof BindException
                 || e instanceof ConstraintViolationException
                 || e instanceof TypeMismatchException
                 || e instanceof ServletRequestBindingException) {
@@ -101,7 +103,7 @@ public class ExceptionAdvice {
 
 
     @Data
-    public class ErrorResp {
+    public static class ErrorResp {
 
         private int code;
         private String msg;

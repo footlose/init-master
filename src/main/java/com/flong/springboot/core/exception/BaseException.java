@@ -1,6 +1,9 @@
 package com.flong.springboot.core.exception;
 
 
+/**
+ * @author wang
+ */
 public class BaseException extends RuntimeException {
 
     private final MsgCode msgCode;

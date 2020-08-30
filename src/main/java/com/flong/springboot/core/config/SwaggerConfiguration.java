@@ -38,8 +38,6 @@ public class SwaggerConfiguration {
         return new ApiInfoBuilder()
                 .title("Swagger RESTful APIs")
                 .description("Swagger RESTful APIs")
-                .termsOfServiceUrl("http://github.com/jilongliang/")
-                .contact("liangjl")
                 .version("1.0")
                 .build();
     }
