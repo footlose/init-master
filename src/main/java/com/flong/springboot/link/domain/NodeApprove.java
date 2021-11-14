@@ -5,6 +5,7 @@ import com.flong.springboot.core.domain.Domain;
 import lombok.Data;
 
 import java.time.ZonedDateTime;
+import java.util.Date;
 
 /**
  * @author : http://www.chiner.pro
@@ -34,7 +35,7 @@ public class NodeApprove extends Domain {
     /**
      * 审批时间
      */
-    private ZonedDateTime approveDate;
+    private Date approveDate;
     /**
      * 节点经历时长
      */

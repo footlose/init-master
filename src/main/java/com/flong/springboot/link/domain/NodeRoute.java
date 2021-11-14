@@ -5,6 +5,7 @@ import com.flong.springboot.core.domain.Domain;
 import lombok.Data;
 
 import java.time.ZonedDateTime;
+import java.util.Date;
 
 /**
  * @author : http://www.chiner.pro
@@ -22,11 +23,11 @@ public class NodeRoute extends Domain {
     /**
      * 到达时间
      */
-    private ZonedDateTime arrivalDate;
+    private Date arrivalDate;
     /**
      * 离开时间
      */
-    private ZonedDateTime leaveDate;
+    private Date leaveDate;
     /**
      * 上一节点ID
      */

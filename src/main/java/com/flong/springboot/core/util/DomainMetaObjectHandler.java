@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
-import java.time.ZonedDateTime;
+import java.util.Date;
 
 /**
  * @author wangshuai
@@ -19,12 +19,14 @@ public class DomainMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void insertFill(MetaObject metaObject) {
-        this.strictInsertFill(metaObject, "createdTime", ZonedDateTime.class, ZonedDateTime.now());
-        this.strictInsertFill(metaObject, "id", Long.class, SnowflakeIdWorker.getId());
+        this.strictInsertFill(metaObject, "createdTime", Date.class, new Date());
+        this.strictInsertFill(metaObject, "updatedTime", Date.class, new Date());
+//        Long id = SnowflakeIdWorker.getId();
+//        this.strictInsertFill(metaObject, "id", Long.class, id);
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
-        this.strictUpdateFill(metaObject, "updatedTime", ZonedDateTime.class, ZonedDateTime.now());
+        this.strictUpdateFill(metaObject, "updatedTime", Date.class, new Date());
     }
 }

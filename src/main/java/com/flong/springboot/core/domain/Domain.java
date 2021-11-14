@@ -3,11 +3,10 @@ package com.flong.springboot.core.domain;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.Version;
-import lombok.Data;
 import lombok.ToString;
 
 import java.io.Serializable;
-import java.time.ZonedDateTime;
+import java.util.Date;
 
 /**
  * @author wangshuai
@@ -15,12 +14,11 @@ import java.time.ZonedDateTime;
  * @description
  * @date 2021/11/14 11:30 上午
  */
-@Data
 @ToString(callSuper = true)
 abstract public class Domain implements Serializable {
 
-
-    private Long id;
+    @TableField(value = "id", fill = FieldFill.INSERT)
+    protected Long id;
 
     /**
      * 租户号
@@ -43,7 +41,7 @@ abstract public class Domain implements Serializable {
      * 创建时间
      */
     @TableField(fill = FieldFill.INSERT)
-    protected ZonedDateTime createdTime;
+    protected Date createdTime;
     /**
      * 更新人
      */
@@ -53,5 +51,62 @@ abstract public class Domain implements Serializable {
      * 更新时间
      */
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    protected ZonedDateTime updatedTime;
+    protected Date updatedTime;
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(Long tenantId) {
+        this.tenantId = tenantId;
+    }
+
+    public Integer getRevision() {
+        return revision;
+    }
+
+    public void setRevision(Integer revision) {
+        this.revision = revision;
+    }
+
+    public Long getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Long createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public Long getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(Long updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public Date getUpdatedTime() {
+        return updatedTime;
+    }
+
+    public void setUpdatedTime(Date updatedTime) {
+        this.updatedTime = updatedTime;
+    }
 }

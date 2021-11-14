@@ -2,7 +2,10 @@ package com.flong.springboot.link.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.flong.springboot.core.domain.Domain;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author : http://www.chiner.pro
@@ -11,6 +14,9 @@ import lombok.Data;
  */
 @TableName("link")
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Link extends Domain {
 
     /**
