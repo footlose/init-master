@@ -14,7 +14,6 @@ import org.springframework.context.annotation.ComponentScan;
  * @Copyright (c) All Rights Reserved, .
  */
 @SpringBootApplication
-@ComponentScan("com.flong.springboot")
 @MapperScan(basePackages = {"com.flong.springboot"})
 public class Application {
 
