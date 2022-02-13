@@ -1,0 +1,22 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.flong.springboot.mediatorPattern.matter.IDesignUserDao">
+
+
+    <select id="queryUserInfoById" parameterType="java.lang.Long" resultType="com.flong.springboot.mediatorPattern.matter.User">
+        SELECT id, name, age, createTime, updateTime
+        FROM user
+        where id = #{id}
+    </select>
+
+    <select id="queryUserList" parameterType="com.flong.springboot.mediatorPattern.matter.User" resultType="com.flong.springboot.mediatorPattern.matter.User">
+        SELECT id, name, age, createTime, updateTime
+        FROM user
+        where age = #{age}
+    </select>
+
+
+
+</mapper>

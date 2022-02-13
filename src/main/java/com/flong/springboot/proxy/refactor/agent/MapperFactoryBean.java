@@ -28,6 +28,10 @@ public class MapperFactoryBean<T> implements FactoryBean<T> {
             log.info("SQL:{}", select.value().replace("#{uId}", args[0].toString()));
             return args[0] + "vita is good";
         };
+        //newProxyInstance，方法有三个参数：
+        //loader: 用哪个类加载器去加载代理对象
+        //interfaces:动态代理类需要实现的接口
+        //h:动态代理方法在执行时，会调用h里面的invoke方法去执行
         return (T) Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class[]{mapperInterface}, handler);
     }
 

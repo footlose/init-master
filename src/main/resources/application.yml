@@ -5,3 +5,11 @@ itstack:
   door:
     enabled: true
     userStr: 1001,aaaa,ccc #白名单用户ID，多个逗号隔开
+
+design:
+  jdbc:
+    datasource:
+      url: jdbc:mysql://101.35.100.126:8306/design?useUnicode=true&serverTimezone=Asia/Shanghai
+      username: root
+      password: Ws122013!
+      driver: com.mysql.cj.jdbc.Driver
