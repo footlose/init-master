@@ -7,7 +7,21 @@
     <update id="addAmountByAccountId">
         update sys_merchant
         set amount = amount + #{amount}
-        where id = #{accountId}
+        where merchant_id = #{merchantId}
+          and amount_index = 0
     </update>
+
+    <update id="indexAddAmountByAccountId">
+        update sys_merchant
+        set amount = amount + #{amount}
+        where merchant_id = #{merchantId}
+          and amount_index = FLOOR(RAND() * 10)
+    </update>
+
+    <select id="getMerchantAmount" resultType="java.lang.Double">
+        select sum(amount)
+        from sys_merchant
+        where merchant_id = #{merchantId}
+    </select>
 
 </mapper>

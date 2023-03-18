@@ -4,14 +4,12 @@ server:
 
 runEvn: '开发环境'
 
-
 spring:
   datasource:
     username: root
     password: Ws122013!
-    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://rm-bp118totc82uatq8p5o.mysql.rds.aliyuncs.com:3306/merchant?useUnicode=true&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://101.35.100.126:8306/link_node?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC
     initialSize: 5
     minIdle: 5
     maxActive: 20

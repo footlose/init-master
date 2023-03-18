@@ -19,13 +19,12 @@ import java.math.BigInteger;
 @NoArgsConstructor
 public class Merchant extends Domain {
 
-    /**
-     * 商户名称
-     */
-    private String merchantName;
+    private Long merchantId;
     /**
      * 金额
      */
-    private BigInteger amount;
+    private Double amount;
+
+    private Integer amountIndex;
 
 }
