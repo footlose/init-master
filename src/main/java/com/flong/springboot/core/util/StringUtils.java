@@ -11,9 +11,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @Description 专门处理对象的一个帮助类
- * @Author liangjl
+ * @Author wangshuai
  * @Version V1.0
- * @Copyright (c) All Rights Reserved, .
+
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
@@ -170,7 +170,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      * @param array
      * @return boolean false表示有重复,true表示没重复的数据
      * @Description 检查是否重复的数据
-     * @Author liangjl
+     * @Author wangshuai
      * @Date 2018年8月8日 下午2:55:16
      */
     public static boolean checkRepeat(Object[] array) {
@@ -191,7 +191,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      * @return List 返回类型
      * @Description 去掉重复的值
      * https://www.cnblogs.com/cainiao-Shun666/p/7911142.html
-     * @Author liangjl
+     * @Author wangshuai
      * @Date 2018年5月31日 下午5:13:48
      */
     public static List removeRepeatValue(List list) {
@@ -204,7 +204,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     /**
      * @Descript 拼接in的参数1, 2
      * @Date 2019/7/23 11:00
-     * @Author liangjl
+     * @Author wangshuai
      */
     public static String sqlInStr(List<String> params) {
         String values = "";

@@ -89,7 +89,7 @@ public class BuildConditionWrapper {
     /**
      * @Descript 此条件构建包装器方法是支持多个表组装成SQL字段的虚拟表，不支持实际存在的表
      * @Date 2019/6/21 13:32
-     * @Author liangjl
+     * @Author wangshuai
      */
     public static <T> QueryWrapper<T> buildWarpper(List<Condition> conditions) {
         //初始化mybatis条件构造器
@@ -157,7 +157,7 @@ public class BuildConditionWrapper {
     /***
      * @Descript 获取指定实体Bean的字段属性
      * @Date 2019/6/19 14:51
-     * @Author liangjl
+     * @Author wangshuai
      */
     public static String getColumnName(String fieldName, Class clazz) {
         try {
