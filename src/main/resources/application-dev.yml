@@ -5,14 +5,19 @@ server:
 runEvn: '开发环境'
 
 spring:
+  redis:
+    database: 0
+    host: 127.0.0.1  # Redis服务器地址，修改为你的地址
+    port: 6379          # Redis服务器连接端口
+    timeout: 3000       # Redis服务器链接超时配置
   datasource:
     username: root
-    password: Ws122013!
-    url: jdbc:mysql://rm-bp118totc82uatq8p5o.mysql.rds.aliyuncs.com:3306/merchant?useUnicode=true&serverTimezone=Asia/Shanghai
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/merchant?useUnicode=true&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       # 连接池最大连接数，默认是 10
-      maximum-pool-size: 60
+      maximum-pool-size: 200
       # 链接超时时间，默认 30000(30 秒)
       connection-timeout: 60000
       # 空闲连接存活最大时间，默认 600000(10 分钟)
@@ -57,7 +62,7 @@ mybatis-plus:
     jdbc-type-for-null: 'NULL'
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   tenant:
-    enable: false #默认关闭多租户功能，各服务根据需要开启
-    ignores: #不过滤tenantId的表,这里主要添加不包含tenant_id字段及全局表，表名统一用大写，否则无法识别
+   enable: false #默认关闭多租户功能，各服务根据需要开启
+   ignores: #不过滤tenantId的表,这里主要添加不包含tenant_id字段及全局表，表名统一用大写，否则无法识别
       - test
 

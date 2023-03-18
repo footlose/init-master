@@ -5,7 +5,7 @@
 <mapper namespace="com.cov.link.mapper.MerchantMapper">
 
     <update id="indexAddAmountByAccountId">
-        update sys_merchant
+        update sys_merchant_flow_amount
         set amount = amount + #{amount}
         where merchant_id = #{merchantId}
           and amount_index = #{amountIndex}
@@ -13,7 +13,7 @@
 
     <select id="getMerchantAmount" resultType="java.lang.Double">
         select sum(amount)
-        from sys_merchant
+        from sys_merchant_flow_amount
         where merchant_id = #{merchantId}
     </select>
 
