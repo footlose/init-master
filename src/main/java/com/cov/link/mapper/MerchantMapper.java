@@ -1,11 +1,9 @@
 package com.cov.link.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.cov.link.domain.Merchant;
+import com.cov.link.domain.MerchantFlowAmount;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
-import java.math.BigDecimal;
 
 /**
  * @author wangshuai
@@ -14,12 +12,12 @@ import java.math.BigDecimal;
  * @date 2021/11/14 12:45 下午
  */
 @Mapper
-public interface MerchantMapper extends BaseMapper<Merchant> {
+public interface MerchantMapper extends BaseMapper<MerchantFlowAmount> {
 
-    boolean addAmountByAccountId(@Param("merchantId") Long merchantId, @Param("amount") Double amount);
-
-
-    boolean indexAddAmountByAccountId(@Param("merchantId") Long merchantId, @Param("amount") Double amount);
+    boolean indexAddAmountByAccountId(@Param("merchantId") Long merchantId,
+                                 @Param("amount") Double amount,
+                                 @Param("amountIndex") Integer amountIndex
+    );
 
 
     Double getMerchantAmount(@Param("merchantId") Long merchantId);

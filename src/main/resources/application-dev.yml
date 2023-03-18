@@ -10,19 +10,21 @@ spring:
     password: Ws122013!
     url: jdbc:mysql://rm-bp118totc82uatq8p5o.mysql.rds.aliyuncs.com:3306/merchant?useUnicode=true&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
-    initialSize: 5
-    minIdle: 5
-    maxActive: 20
-    maxWait: 60000
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: SELECT 1 FROM DUAL
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    connectionInitSqls: set names utf8mb4
-    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    hikari:
+      # 连接池最大连接数，默认是 10
+      maximum-pool-size: 60
+      # 链接超时时间，默认 30000(30 秒)
+      connection-timeout: 60000
+      # 空闲连接存活最大时间，默认 600000(10 分钟)
+      idle-timeout: 60000
+      # 连接将被测试活动的最大时间量
+      validation-timeout: 3000
+      # 此属性控制池中连接的最长生命周期，值 0 表示无限生命周期，默认 1800000(30 分钟)
+      max-lifetime: 60000
+      # 连接到数据库时等待的最长时间(秒)
+      login-timeout: 5
+      # 池中维护的最小空闲连接数
+      minimum-idle: 10
   mvc:
     view:
       prefix: /WEB-INF/views/
@@ -53,7 +55,9 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     jdbc-type-for-null: 'NULL'
-tenant:
-  enable: false #默认关闭多租户功能，各服务根据需要开启
-  ignores: #不过滤tenantId的表,这里主要添加不包含tenant_id字段及全局表，表名统一用大写，否则无法识别
-    - test
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  tenant:
+    enable: false #默认关闭多租户功能，各服务根据需要开启
+    ignores: #不过滤tenantId的表,这里主要添加不包含tenant_id字段及全局表，表名统一用大写，否则无法识别
+      - test
+

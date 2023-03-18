@@ -7,24 +7,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigInteger;
-
 /**
  * @author : wangshuai
  */
-@TableName("sys_merchant")
+@TableName("sys_merchant_flow_amount_details")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Merchant extends Domain {
+public class MerchantFlowAmountDetails extends Domain {
 
     private Long merchantId;
-    /**
-     * 金额
-     */
+
     private Double amount;
 
-    private Integer amountIndex;
+    private Integer merchantFlowAmountIndex;
 
 }

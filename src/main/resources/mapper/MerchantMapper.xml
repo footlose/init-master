@@ -4,18 +4,11 @@
 
 <mapper namespace="com.cov.link.mapper.MerchantMapper">
 
-    <update id="addAmountByAccountId">
-        update sys_merchant
-        set amount = amount + #{amount}
-        where merchant_id = #{merchantId}
-          and amount_index = 0
-    </update>
-
     <update id="indexAddAmountByAccountId">
         update sys_merchant
         set amount = amount + #{amount}
         where merchant_id = #{merchantId}
-          and amount_index = FLOOR(RAND() * 10)
+          and amount_index = #{amountIndex}
     </update>
 
     <select id="getMerchantAmount" resultType="java.lang.Double">
