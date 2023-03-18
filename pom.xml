@@ -206,7 +206,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.flong.springboot.SpringbootApplication</mainClass>
+                            <mainClass>com.cov.SpringbootApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
